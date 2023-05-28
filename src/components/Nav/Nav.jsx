@@ -1,45 +1,61 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FiShoppingCart } from "react-icons/fi"
+import { CgMenu, CgClose } from "react-icons/cg";
+import { useState } from "react";
 
 function Nav() {
+  const [menuIcon, setMenuIcon] = useState(false);
+
   return (
     <Navbar>
-        <div className="navbar">
-            <ul className="navbar-lists">
-                <li>
-                    <NavLink to="/" className="navbar-link ome-link">
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/About" className="navbar-link ">
-                        About
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/Products" className="navbar-link ">
-                        Products
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/contact" className="navbar-link ">
-                        Contact
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/cart" className="navbar-link cart-trolley--link">
-                        <FiShoppingCart className="cart-trolley"/>
-                        {/* This is static just for testing  */}
-                        <span className="cart-total--item">8</span>
+      <div className={menuIcon ? "navbar active" : "navbar"}>
+        <ul className="navbar-lists">
+          <li>
+            <NavLink to="/" className="navbar-link ome-link">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/About" className="navbar-link ">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Products" className="navbar-link ">
+              Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className="navbar-link ">
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+              <FiShoppingCart className="cart-trolley" />
+              {/* This is static just for testing  */}
+              <span className="cart-total--item">8</span>
+            </NavLink>
+          </li>
+        </ul>
 
-
-                    </NavLink>
-                </li>
-            </ul>
+        {/* Toggle the mobile menu  */}
+        <div className="mobile-navbar-btn">
+          <CgMenu 
+            name="menu-outline" 
+            className="mobile-nav-icon" 
+            onClick={() => setMenuIcon(true)}
+            />
+          <CgClose
+            name="close-outline"
+            className="mobile-nav-icon close-outline"
+            onClick={() => setMenuIcon(false)}
+            />
         </div>
+      </div>
     </Navbar>
-  )
+  );
 }
 
 const Navbar = styled.nav`
@@ -57,7 +73,7 @@ const Navbar = styled.nav`
           font-weight: 500;
           text-transform: uppercase;
           color: ${({ theme }) => theme.colors.black};
-          transition: color 0.3s linear;
+          /* transition: color 0.3s linear; */
         }
 
         &:hover,
@@ -157,8 +173,6 @@ const Navbar = styled.nav`
         visibility: hidden;
         opacity: 0;
         transform: translateX(100%);
-        /* transform-origin: top; */
-        transition: all 3s linear;
       }
 
       .active .navbar-lists {
@@ -167,7 +181,6 @@ const Navbar = styled.nav`
         transform: translateX(0);
         z-index: 999;
         transform-origin: right;
-        transition: all 3s linear;
 
         .navbar-link {
           font-size: 4.2rem;
