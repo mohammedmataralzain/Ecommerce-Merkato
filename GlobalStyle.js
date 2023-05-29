@@ -87,6 +87,7 @@ export const GlobalStyle = createGlobalStyle`
     .container {
       max-width: 120rem;
       margin: 0 auto;
+      padding: 0 3.2rem;
     }
 
     .grid {
