@@ -15,7 +15,7 @@ function HeroSection({ data }) {
             <p>
              {data.heroBody}
             </p>
-            <NavLink>
+            <NavLink to="/">
               <Button>
                 {data.btnTitle}
               </Button>

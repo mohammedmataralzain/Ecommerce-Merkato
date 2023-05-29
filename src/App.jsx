@@ -15,6 +15,7 @@ import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../GlobalStyle";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/SingleProduct/:id" element={<SingleProduct />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <Footer/>
     </ThemeProvider>
   );
 }
