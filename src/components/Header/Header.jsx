@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
-import styled from "styled-components"
 import logo from "../../assets/logo.png";
 import Nav from "../Nav/Nav";
+import { MainHeader } from "./Header.styles";
 
 function Header() {
   return (
@@ -14,18 +14,6 @@ function Header() {
   )
 }
 
-const MainHeader = styled.header`
-    background-color: ${({theme}) => theme.colors.bg};
-    height: 10rem;
-    padding: 0 4.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
 
-    .logo{
-        height: 5rem;
-    }
-`
 
 export default Header
