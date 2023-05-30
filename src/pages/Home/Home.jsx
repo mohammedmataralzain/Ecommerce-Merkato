@@ -1,7 +1,8 @@
-import styled from "styled-components"
 import HeroSection from "../../components/HeroSection/HeroSection";
 import hero from "../../assets/hero.jpg"
 import Services from "../../components/OurServices/Services";
+import { Wrapper } from "./Home.styles";
+import Trusted from "../../components/Trusted/Trusted";
 
 const Home = () => {
   // hero section data
@@ -20,17 +21,11 @@ const Home = () => {
     <Wrapper>
       <HeroSection data={heroData} />
       <Services />
+      <Trusted />
     </Wrapper>
   );
 };
 
 
-const Wrapper = styled.section`
-  /* background: ${({theme}) => theme.colors.bg}; */
-  // this code right here is temprory to show home section until we start to work on it
-  /* width:20rem; */
-  /* height:20rem; */
-  /* height: 100vh; */
-`;
 
 export default Home
