@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-
   height: fit-content;
   background-color: ${({ theme }) => theme.colors.footer_bg};
-
+  margin-top: 9rem;
   .contact-short {
     max-width: 75vw;
     margin: auto;
