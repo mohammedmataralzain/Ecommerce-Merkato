@@ -3,6 +3,7 @@ import hero from "../../assets/hero.jpg"
 import Services from "../../components/OurServices/Services";
 import { Wrapper } from "./Home.styles";
 import Trusted from "../../components/Trusted/Trusted";
+import FeatureProducts from "../../components/FeatureProducts/FeatureProducts";
 
 const Home = () => {
   // hero section data
@@ -20,6 +21,7 @@ const Home = () => {
   return (
     <Wrapper>
       <HeroSection data={heroData} />
+      <FeatureProducts />
       <Services />
       <Trusted />
     </Wrapper>
