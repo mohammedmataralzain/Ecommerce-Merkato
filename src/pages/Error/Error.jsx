@@ -17,7 +17,7 @@ const Error = () => {
       </span>
     </section>
     <div className="link-container">
-    <h3>UH OH! You're lost..</h3>
+    <h3>UH OH! Youre lost..</h3>
           <p>
             The page you are looking for does not exist. How you got here is a
             mystery. But you can click the button below to go back to the
