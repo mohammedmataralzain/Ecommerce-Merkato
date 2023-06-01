@@ -16,6 +16,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../GlobalStyle";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Products from "./pages/Products/Products";
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
+        <Route path="/Products" element={<Products />} />
         <Route path="/SingleProduct/:id" element={<SingleProduct />} />
         <Route path="*" element={<Error />} />
       </Routes>
