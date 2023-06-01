@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyleError = styled.section`
   width: 50%;
-  margin: 10% auto;
+  margin: 5% auto;
   text-align: center;
   section {
     font-size: 106px;
@@ -115,9 +115,8 @@ export const StyleError = styled.section`
         );
       overflow: hidden;
       animation: bgShadow 5s infinite;
-      @media (max-width : 676px) {
-      margin:  1.7rem 0;
-        
+      @media (max-width: 676px) {
+        margin: 1.7rem 0;
       }
     }
     span.zero:before {
@@ -168,6 +167,13 @@ export const StyleError = styled.section`
     left: -9999em;
   }
 
+  h3 {
+    font-size: 4.2rem;
+  }
+
+  p {
+    margin: 2rem 0;
+  }
   @keyframes bgShadow {
     0% {
       box-shadow: inset -160px 160px 0px 5px rgba(0, 0, 0, 0.4);
