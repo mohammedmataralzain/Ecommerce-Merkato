@@ -4,7 +4,6 @@ import { Wrapper } from "./FeatureProducts.styles";
 
 function FeatureProducts() {
   const {inLoading, featuredProducts} = useProductContext();
-  console.log(featuredProducts);
 
   if (inLoading){
     return <div>Loading...</div>
@@ -19,7 +18,7 @@ function FeatureProducts() {
             <div className="grid grid-three-column">
                 {
                     featuredProducts.map((product) => {
-                        return <Product key={product.key} {...product}/>
+                        return <Product key={product.id} {...product}/>
                     })
                 }
             </div>

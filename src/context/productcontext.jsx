@@ -8,6 +8,7 @@ const AppContext = createContext();
 
 const API = "https://api.pujakaitem.com/api/products";
 
+// eslint-disable-next-line react/prop-types
 const AppProvider = ({ children }) => {
     
     const[state,dispatch] = useReducer(reducer,initialState);
@@ -15,6 +16,7 @@ const AppProvider = ({ children }) => {
      const getData = async () => {
         dispatch({type:"SET_LOADING"});
         try {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             const products = await useGetProducts(API);
             dispatch({type:"SET_API_DATA",payload:products});
         } catch (err) {
