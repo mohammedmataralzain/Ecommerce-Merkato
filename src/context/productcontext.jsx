@@ -8,29 +8,29 @@ const AppContext = createContext();
 
 const API = "https://api.pujakaitem.com/api/products";
 
+// eslint-disable-next-line react/prop-types
 const AppProvider = ({ children }) => {
-    
-    const[state,dispatch] = useReducer(reducer,initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-     const getData = async () => {
-        dispatch({type:"SET_LOADING"});
-        try {
-            const products = await useGetProducts(API);
-            dispatch({type:"SET_API_DATA",payload:products});
-        } catch (err) {
-            dispatch({type:"SET_ERROR"});
-        }
-     }
+  const getData = async () => {
+    dispatch({ type: "SET_LOADING_OFF" });
+    try {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const products = await useGetProducts(API);
+      dispatch({ type: "SET_API_DATA", payload: products });
+    } catch (err) {
+      dispatch({ type: "SET_ERROR" });
+    }
+    dispatch({ type: "SET_LOADING_ON" });
 
-    useEffect(() => {
-        getData();
-    },[])
-    
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <AppContext.Provider value={{...state}}>
-      {children}
-    </AppContext.Provider>
-
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   );
 };
 
