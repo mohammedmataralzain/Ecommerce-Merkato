@@ -24,13 +24,26 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING_ON" });
 
   };
+  const getSingleProductData = async (id) => {
+    dispatch({ type: "SET_LOADING_SINGLE_PRODUCT_OFF" });
+    try {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const singleProduct = await useGetProducts(`${API}/${id}`);
+      console.log(singleProduct);
+      dispatch({ type: "SET_SINGLE_PRODUCT_DATA", payload: singleProduct });
+    } catch (err) {
+      dispatch({ type: "SET_SINGLE_PRODUCT_ERROR" });
+    }
+    dispatch({ type: "SET_LOADING_SINGLE_PRODUCT_ON" });
+
+  };
 
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state ,getSingleProductData}}>{children}</AppContext.Provider>
   );
 };
 
