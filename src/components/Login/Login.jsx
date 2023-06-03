@@ -3,11 +3,14 @@ import { useRef } from "react";
 import { Wrapper } from "./Login.styles";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../config/firebase";
+import { useState } from "react";
 // import { ref, set, update } from "firebase/database";
 
 function Login() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  // if (true) => signUp (false) => signIn
+  const [register, setRegister] = useState(false);
 
   // Sign Up function
   const signUp = (e) => {
@@ -50,14 +53,14 @@ function Login() {
     <Wrapper>
       <div className="container">
         <form className="login-form">
-          <h2>Login</h2>
+          <h2>{register ? "Sign Up" : "Sign In"}</h2>
           <input ref={emailRef} type="text" placeholder="Email" required />
           <input ref={passwordRef} type="password" placeholder="Password" required />
           <div className="toSignUp">
-            <span>New to Mercato? </span>
-            <span onClick={signUp}>Sign Up now.</span>
+            <span>{register ? "Already have account" : "New to Mercato?"} </span>
+            <span onClick={() => setRegister(prev => !prev)}>{register ? "Sign In Now" : "Sign Up Now"}</span>
           </div>
-          <button type="submit" onClick={signIn}>Login</button>
+          <button type="submit" onClick={register ? signUp : signIn}>{register ? "Sign Up": "Sign In"}</button>
           <div className="break">
             <span>or</span>
           </div>
