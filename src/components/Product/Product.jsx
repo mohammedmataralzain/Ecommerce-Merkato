@@ -4,7 +4,7 @@ import { Wrapper } from "./Product.styles"
 // eslint-disable-next-line react/prop-types
 function Product({name, image, price, category}) {
   return (
-    <NavLink>
+    <NavLink to="/">
         <Wrapper className="card">
             <figure>
               <img src={image} alt={name} />

@@ -9,9 +9,8 @@ export const initialState = {
 const productReducer = (state, action) => {
   switch (action.type) {
 
-    case "SET_LOADING":
-
-      return { ...state, isLoading: true };
+    case "SET_LOADING_OFF":
+      return { ...state, inLoading: true };
 
     case "SET_API_DATA":
       // eslint-disable-next-line no-case-declarations
@@ -24,8 +23,10 @@ const productReducer = (state, action) => {
       };
 
     case "SET_ERROR":
-        
-      return { ...state, isLoading: false, isError: true };
+
+      return { ...state, inLoading: false, isError: true };
+      case "SET_LOADING_ON":
+        return { ...state, inLoading: false };
 
     default:
       return state;
