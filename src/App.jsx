@@ -57,7 +57,7 @@ function App() {
       if (user){
         setUser(user);
       }else{
-        console.log("no user!")
+        setUser(null);
       }
     });
     
