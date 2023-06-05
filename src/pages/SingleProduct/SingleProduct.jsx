@@ -7,6 +7,7 @@ import FormatPrice from "../../Helpers/FormatPrice";
 import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { StyleSingleProduct } from "./styled";
+import MyImgs from "../../components/MyImge/MyImgs";
 
 // import {getSingleProductData} from "../../context"
 const SingleProduct = () => {
@@ -43,7 +44,9 @@ const SingleProduct = () => {
           <PageNavigation title={name} />
           <div className="container">
             <div className="grid grid-two-column">
-              <div className="singleproduct-images"></div>
+              <div className="singleproduct-images">
+                <MyImgs imgs={image}/>
+              </div>
               <div className="singleproduct-information">
                 <h2>{name}--{category}</h2>
                 <p>{stars}</p>

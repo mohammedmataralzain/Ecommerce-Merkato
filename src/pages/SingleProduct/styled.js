@@ -7,9 +7,6 @@ export const StyleSingleProduct = styled.section`
     display: flex;
     align-items: center;
   }
-  .grid {
-    padding: 12rem 0;
-  }
   .product-data-warranty {
     width: 100%;
     display: flex;
@@ -53,5 +50,9 @@ export const StyleSingleProduct = styled.section`
     }
     .product-data-real-price {
       color: ${({ theme }) => theme.colors.btn};
+    }
+    .singleproduct-images {
+      display: flex;
+      align-items: center;
     }
 `;
