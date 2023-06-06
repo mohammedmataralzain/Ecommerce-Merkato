@@ -8,6 +8,7 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { StyleSingleProduct } from "./styled";
 import MyImgs from "../../components/MyImge/MyImgs";
+import {Button} from "../../styles/Button"
 
 // import {getSingleProductData} from "../../context"
 const SingleProduct = () => {
@@ -47,7 +48,7 @@ const SingleProduct = () => {
               <div className="singleproduct-images">
                 <MyImgs imgs={image}/>
               </div>
-              <div className="singleproduct-information">
+           <div className="singleproduct-information">
                 <h2>{name}--{category}</h2>
                 <p>{stars}</p>
                 <p>{reviews}</p>
@@ -93,6 +94,7 @@ const SingleProduct = () => {
                   Brand : <span>{company}</span>
                 </p>
                 <hr/>
+              <Button>Add To Cart</Button>
               </div>
             </div>
           </div>
