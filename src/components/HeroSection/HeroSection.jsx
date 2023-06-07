@@ -23,7 +23,7 @@ function HeroSection({ data }) {
           </div>
 
           <div className="hero-img">
-            <img className="img-style" src={data.img} alt="hero-photo" />
+            <img className="img-style" src={data.img} alt="hero-photo" loading="lazy"/>
           </div>
         </div>
       </div>

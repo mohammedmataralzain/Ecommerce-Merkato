@@ -7,7 +7,7 @@ function Product({name, image, price, category,id}) {
     <NavLink to={`/SingleProduct/${id}`}>
         <Wrapper className="card">
             <figure>
-              <img src={image} alt={name} />
+              <img src={image} alt={name} loading="lazy"/>
               <figcaption className="caption">{category}</figcaption>
             </figure>
     

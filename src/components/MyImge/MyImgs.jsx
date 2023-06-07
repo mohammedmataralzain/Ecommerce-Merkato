@@ -14,11 +14,11 @@ const MyImgs = ({ imgs }) => {
     <Wrapper>
       <div className="grid grid-four-column">
         {imgs?.map((img, index) => (
-          <img src={img.url} key={index} onClick={() => click(index)} />
+          <img src={img.url} key={index} onClick={() => click(index)} alt="Img Not Found" loading="lazy"/>
         ))}
       </div>
       <div className="main-screen">
-        <img src={imgs?.[index]?.url} />
+        <img src={imgs?.[index]?.url} alt="Img Not Found" loading="lazy"/>
       </div>
     </Wrapper>
   );
