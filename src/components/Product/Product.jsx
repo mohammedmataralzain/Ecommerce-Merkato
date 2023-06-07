@@ -2,12 +2,12 @@ import { NavLink } from "react-router-dom"
 import { Wrapper } from "./Product.styles"
 
 // eslint-disable-next-line react/prop-types
-function Product({name, image, price, category}) {
+function Product({name, image, price, category,id}) {
   return (
-    <NavLink to="/">
+    <NavLink to={`/SingleProduct/${id}`}>
         <Wrapper className="card">
             <figure>
-              <img src={image} alt={name} />
+              <img src={image} alt={name} loading="lazy"/>
               <figcaption className="caption">{category}</figcaption>
             </figure>
     
