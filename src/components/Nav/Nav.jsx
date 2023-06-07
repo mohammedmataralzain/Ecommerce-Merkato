@@ -3,9 +3,19 @@ import { FiShoppingCart } from "react-icons/fi"
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useState } from "react";
 import { Navbar } from "./Nav.styles";
+import { Button } from "../../styles/Button";
+import { auth } from "../../config/firebase";
+import {signOut} from "firebase/auth"
 
 function Nav() {
   const [menuIcon, setMenuIcon] = useState(false);
+
+  const logOut = (e) => {
+    e.preventDefault();
+    signOut(auth)
+      .then()
+      .catch((err) => console.error(err))
+  }
 
   return (
     <Navbar>
@@ -29,6 +39,11 @@ function Nav() {
           <li>
             <NavLink to="/contact" className="navbar-link ">
               Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="navbar-link ">
+              <Button onClick={logOut}>Log Out</Button>
             </NavLink>
           </li>
           <li>

@@ -29,6 +29,7 @@ const AppProvider = ({ children }) => {
     try {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const singleProduct = await useGetProducts(`${API}/${id}`);
+
       dispatch({ type: "SET_SINGLE_PRODUCT_DATA", payload: singleProduct });
     } catch (err) {
       dispatch({ type: "SET_SINGLE_PRODUCT_ERROR" });
