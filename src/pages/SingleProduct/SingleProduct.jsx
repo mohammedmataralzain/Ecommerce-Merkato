@@ -9,6 +9,7 @@ import { MdSecurity } from "react-icons/md";
 import { StyleSingleProduct } from "./styled";
 import MyImgs from "../../components/MyImge/MyImgs";
 import {Button} from "../../styles/Button"
+import Star from "../../components/Star/Star";
 
 // import {getSingleProductData} from "../../context"
 const SingleProduct = () => {
@@ -49,9 +50,8 @@ const SingleProduct = () => {
                 <MyImgs imgs={image}/>
               </div>
            <div className="singleproduct-information">
-                <h2>{name}--{category}</h2>
-                <p>{stars}</p>
-                <p>{reviews}</p>
+                <h2>{name}</h2>
+                <Star stars={stars} reviews={reviews}/>
                 <p className="product-data-price">
               MRP:
               <del>
