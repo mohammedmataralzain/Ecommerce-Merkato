@@ -53,6 +53,7 @@ function App() {
     },
   };
 
+  // Check if the user exists [For login]
   const [user, setUser] = useState(auth.currentUser);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
