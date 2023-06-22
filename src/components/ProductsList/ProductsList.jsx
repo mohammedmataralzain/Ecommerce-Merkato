@@ -1,7 +1,18 @@
+/* eslint-disable react/prop-types */
+import Product from "../Product/Product"
+import { Wrapper } from "./ProductsList.styles"
 
-const ProductsList = () => {
+const ProductsList = ({products, classname}) => { 
   return (
-    <div>ProductsList</div>
+    <Wrapper>
+      <div className={`container ${classname ? "grid grid-three-column" : ""} `}>
+        {
+          products.map((product) => (
+           <Product key={product.id} {...product}/> 
+          ))
+        }
+      </div>
+    </Wrapper>
   )
 }
 

@@ -28,7 +28,7 @@ export const Wrapper = styled.section`
       width: 100%;
     }
     &:hover img {
-      transform: scale(1.2) rotate(6deg);
+      transform: scale(1.3) rotate(6deg);
     }
     img {
       max-width: 90%;

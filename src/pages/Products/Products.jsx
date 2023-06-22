@@ -1,14 +1,12 @@
 import Filters from "../../components/Filters/Filters"
 import ProductsList from "../../components/ProductsList/ProductsList"
 import Sort from "../../components/Sort/Sort"
-import { useFilterContext } from "../../context/filterContext"
+import useFilterContext from "../../hooks/useFilterContext";
 import { Wrapper } from "./Products.styles"
-import Product from "../../components/Product/Product"
 
 const Products = () => {
-  const { filter_products } = useFilterContext();
-  console.log(filter_products);
-
+  const { filter_products, grid_view } = useFilterContext();
+  
   return (
     <Wrapper>
       <div className="filter-products-grid">
@@ -20,7 +18,7 @@ const Products = () => {
         <div className="sort-productsList-grid">
           <div className="sort"><Sort /></div>
           <div className="productsList">
-            <ProductsList />
+            <ProductsList classname={grid_view} products={filter_products} />
           </div>
         </div>
 
