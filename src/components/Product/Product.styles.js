@@ -93,4 +93,23 @@ export const Wrapper = styled.section`
         font-size: 1.4rem;
       }
     }
+
+    // for the list view 
+    .card-list{
+     
+      display: flex;
+      justify-content: space-evenly;
+
+      .card-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+        /* max-width: 100%; */
+        height: 20rem;
+        
+      }
+      }
+      
+    }
 `;

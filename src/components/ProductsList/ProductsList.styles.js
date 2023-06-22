@@ -8,15 +8,27 @@ export const Wrapper = styled.section`
         
     }
 
+    .card{
+        background-color: ${({ theme }) => theme.colors.bg};
+    }
+
+    /* for the grid view  */
     .grid{
         gap: 3.2rem;
     }
 
+
+    /* for the list view  */
+    .flex{
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+
+    }
     
 
-    .card{
-        background-color: ${({ theme }) => theme.colors.bg};
-    }
+   
 
     
 `

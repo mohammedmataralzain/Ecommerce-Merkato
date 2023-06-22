@@ -18,7 +18,7 @@ const Products = () => {
         <div className="sort-productsList-grid">
           <div className="sort"><Sort /></div>
           <div className="productsList">
-            <ProductsList classname={grid_view} products={filter_products} />
+            <ProductsList view={grid_view} products={filter_products} />
           </div>
         </div>
 
