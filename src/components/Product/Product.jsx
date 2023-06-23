@@ -27,7 +27,7 @@ function Product({
             <div className="card-data">
               <h3>{name}</h3>
               <p className="card-data-price">
-                USD {(price.toString().slice(0, 4) / 4).toFixed(2)}
+                USD {(price.toString().slice(0, 4) / 5).toFixed(2)}
               </p>
             </div>
           </>
@@ -43,7 +43,7 @@ function Product({
             <div className="card-data">
               <h3>{name}</h3>
               <p className="card-data-price">
-                USD {(price.toString().slice(0, 4) / 4).toFixed(2)}
+                USD {(price.toString().slice(0, 4) / 5).toFixed(2)}
               </p>
               <p>{description.slice(0, 90)}...</p>
               <NavLink to={`/SingleProduct/${id}`}>

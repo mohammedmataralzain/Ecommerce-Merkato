@@ -3,7 +3,7 @@ import { Wrapper } from "./Sort.styles";
 import useFilterContext from "../../hooks/useFilterContext";
 
 const Sort = () => {
-  const { filter_products, grid_view, setGridView, setListView } = useFilterContext();
+  const { filter_products, grid_view, setGridView, setListView, sorting } = useFilterContext();
 
   return (
     <Wrapper className="container">
@@ -30,12 +30,14 @@ const Sort = () => {
       </div>
 
       <div className="sort-selection">
-        <select name="sort" id="sort">
-          <option value="lowest">Price(lowers)</option>
-          <option value="highest">Price(highest)</option>
-          <option value="a-z">Price(a-z)</option>
-          <option value="z-a">Price(z-a)</option>
-        </select>
+        <form action="#">
+          <select name="sort" id="sort" onClick={sorting}>
+            <option value="lowest">Price(lowest)</option>
+            <option value="highest">Price(highest)</option>
+            <option value="a-z">Product(a-z)</option>
+            <option value="z-a">Product(z-a)</option>
+          </select>
+        </form>
       </div>
     </Wrapper>
   );

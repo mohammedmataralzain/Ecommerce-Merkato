@@ -39,15 +39,17 @@ export const Wrapper = styled.section`
     }
     
     .sort-selection select{
-        background-color: ${({theme}) => theme.colors.main};
-        padding: 0.5rem 0;
+        background-color: ${({theme}) => theme.colors.bg};
+        padding: 0.6rem 0;
         outline: none;
+        border: 1px solid ${({theme}) => theme.colors.border};
 
         option{
             cursor: pointer;
-            padding: 0.5rem 0;
+            padding: 5rem 0 !important;
             height: 2rem;
             /* padding: 10px; */
+
         }
     }
 `
