@@ -26,7 +26,7 @@ function Product({
 
             <div className="card-data">
               <h3>{name}</h3>
-              <p className="card-data--price">
+              <p className="card-data-price">
                 USD {(price.toString().slice(0, 4) / 4).toFixed(2)}
               </p>
             </div>
@@ -35,19 +35,22 @@ function Product({
         ) : (
 
           <div className="card-list">
+
             <div className="card-img">
               <img src={image} alt={name} loading="lazy"/>
             </div>
+
             <div className="card-data">
               <h3>{name}</h3>
-              <p className="card-data--price">
+              <p className="card-data-price">
                 USD {(price.toString().slice(0, 4) / 4).toFixed(2)}
               </p>
-              <p>{description}</p>
+              <p>{description.slice(0, 90)}...</p>
               <NavLink to={`/SingleProduct/${id}`}>
                 <Button>read more</Button>
               </NavLink>
             </div>
+
           </div>
 
         )}
