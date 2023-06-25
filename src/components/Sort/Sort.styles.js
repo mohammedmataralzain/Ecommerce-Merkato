@@ -11,8 +11,8 @@ export const Wrapper = styled.section`
 
 
         .view_btn{
-            padding: 0.8rem 1rem;
-            background-color: ${({theme}) => theme.colors.main};
+            padding: 0.7rem 1rem;
+            background-color: ${({theme}) => theme.colors.bg};
             border: none;
             cursor: pointer;
             display: flex;
@@ -39,7 +39,6 @@ export const Wrapper = styled.section`
     }
     
     .sort-selection select{
-        background-color: ${({theme}) => theme.colors.bg};
         padding: 0.6rem 0;
         outline: none;
         border: 1px solid ${({theme}) => theme.colors.border};
