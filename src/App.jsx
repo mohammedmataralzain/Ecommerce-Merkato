@@ -4,12 +4,13 @@ import "./App.css";
 import React, { lazy } from "react";
 
 //pages
-const Cart = lazy(() => import("./pages/Cart/Cart"));
-const Contact = lazy(() => import("./pages/Contact/Contact"));
 const Home = lazy(() => import("./pages/Home/Home"));
-const SingleProduct = lazy(() => import("./pages/SingleProduct/SingleProduct"));
-const Error = lazy(() => import("./pages/Error/Error"));
 const About = lazy(() => import("./pages/About/About"));
+const Products = lazy(() => import("./pages/Products/Products"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const Cart = lazy(() => import("./pages/Cart/Cart"));
+const Error = lazy(() => import("./pages/Error/Error"));
+const SingleProduct = lazy(() => import("./pages/SingleProduct/SingleProduct"));
 
 //  Routes , Route
 import { Routes, Route } from "react-router-dom";
@@ -17,7 +18,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../GlobalStyle";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Products from "./pages/Products/Products";
+// import Products from "./pages/Products/Products";
 
 // import useUserContext from "./hooks/useUserContext";
 import Login from "./components/Login/Login";
@@ -53,10 +54,14 @@ function App() {
     },
   };
 
-  // Check if the user exists [For login]
-  const [user, setUser] = useState(auth.currentUser);
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //Check if the user exists [For login]
+  const checkLoginStatus = async() => {
+    let user = await auth.currentUser;
+    return user
+  }
+  const [user, setUser] = useState(checkLoginStatus);
+  useEffect( () => {
+    const unsubscribe =  onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
