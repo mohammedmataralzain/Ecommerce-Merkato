@@ -5,7 +5,7 @@ export const Wrapper = styled.section`
         display: grid;
         grid-template-columns: 0.2fr 1fr;
         margin-top: 5rem;
-        gap: 9rem;
+        gap: 3.2rem;
     }
     @media(max-width: ${({theme}) => theme.media.mobile}){
         .filter-products-grid{
