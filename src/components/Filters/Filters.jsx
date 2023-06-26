@@ -8,14 +8,16 @@ const Filters = () => {
   const { filters: {text, category}, all_products, updateFilterValue} = useFilterContext();
 
   // to get all available values in a spacific property
-  const getUniqValue = (data, property) => {
-    const categorys = data.map((element) => {
+  const getUniqueValue = (data, property) => {
+    const categories = data.map((element) => {
       return element[property]
     })
-    return ["all", ...new Set(categorys)];
+    return ["all", ...new Set(categories)];
   }
-  const categorys = getUniqValue(all_products, "category")
-  console.log(categorys);
+  const categories = getUniqueValue(all_products, "category")
+  const companies = getUniqueValue(all_products, "company")
+  // Testing
+  // console.log(companies);
 
   return (
     <Wrapper>
@@ -38,7 +40,7 @@ const Filters = () => {
         <h3>Category</h3>
         <div>
           {
-            categorys.map((element, index) => (
+            categories.map((element, index) => (
               <button
                 key={index}
                 type="button"
@@ -51,6 +53,28 @@ const Filters = () => {
               </button>
             ))
           }
+        </div>
+      </div>
+
+      <div className="filter-company">
+        <h3>Company</h3>
+        <div>
+        <select
+          id="company"
+          name="company"
+          onClick={updateFilterValue}
+          className="filter-company-select"
+        >
+          {
+            companies.map((element, index) => (
+              <option 
+                key={index}
+                name="company"
+                value={element}
+              >{element}</option>
+            ))
+          }
+        </select>
         </div>
       </div>
     </Wrapper>
