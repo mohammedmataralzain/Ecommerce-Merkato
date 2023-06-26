@@ -15,6 +15,7 @@ const initialState = {
     sorting_value: "lowest",
     filters: {
         text: "",
+        category: "all",
     },
 }
 
@@ -36,7 +37,7 @@ export const FilterContextProvider = ({children}) => {
         return dispatch({type: "GET_SORT_VALUE", payload: sortValue});
     }
 
-    // For the search filter
+    // For the search and categor and ... filters
     const updateFilterValue = (e) => {
         const name = e.target.name;
         const value = e.target.value;
