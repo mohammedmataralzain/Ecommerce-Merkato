@@ -29,27 +29,35 @@ export const Wrapper = styled.section`
     }
 
     .filter-category {
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.4rem;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.4rem;
 
-      button {
-        border: none;
-        background-color: ${({ theme }) => theme.colors.white};
-        text-transform: capitalize;
-        cursor: pointer;
+        button {
+          border: none;
+          background-color: ${({ theme }) => theme.colors.white};
+          text-transform: capitalize;
+          cursor: pointer;
 
-        &:hover {
+          &:hover {
+            color: ${({ theme }) => theme.colors.btn};
+          }
+        }
+
+        .active {
+          border-bottom: 1px solid ${({theme}) => theme.colors.btn};
           color: ${({ theme }) => theme.colors.btn};
         }
       }
-
-      .active {
-        border-bottom: 1px solid ${({theme}) => theme.colors.btn};
-        color: ${({ theme }) => theme.colors.btn};
-      }
     }
-  }
+
+    // Companies style
+    .filter-company-select{
+      padding: 0.3rem 1rem;
+      font-size: 1.6rem;
+      text-transform: capitalize;
+      outline: none;
+    }
 `
