@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom"
 import { Wrapper } from "./Product.styles"
+import FormatPrice from "../../Helpers/FormatPrice"
 
 // eslint-disable-next-line react/prop-types
 function Product({name, image, price, category,id}) {
+  
   return (
     <NavLink to={`/SingleProduct/${id}`}>
         <Wrapper className="card">
@@ -13,7 +15,7 @@ function Product({name, image, price, category,id}) {
     
             <div className="card-data">
                 <h3>{name}</h3>
-                <p className="card-data--price">USD {(price.toString().slice(0,4) / 4).toFixed(2)}</p>
+                <p className="card-data--price"><FormatPrice price={price}/></p>
             </div>
         </Wrapper>
     </NavLink>

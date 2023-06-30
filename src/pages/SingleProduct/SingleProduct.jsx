@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useProductContext from "../../hooks/useProductContext";
@@ -8,8 +9,9 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { StyleSingleProduct } from "./styled";
 import MyImgs from "../../components/MyImge/MyImgs";
-import {Button} from "../../styles/Button"
+import { Button } from "../../styles/Button";
 import Star from "../../components/Star/Star";
+import AddToCart from "../../components/AddToCart/AddToCart"
 
 // import {getSingleProductData} from "../../context"
 const SingleProduct = () => {
@@ -33,8 +35,6 @@ const SingleProduct = () => {
     getSingleProductData(id);
   }, []);
 
- 
-  
   return (
     <StyleSingleProduct>
       {loadingSingleProduct ? (
@@ -46,22 +46,27 @@ const SingleProduct = () => {
           <PageNavigation title={name} />
           <div className="container">
             <div className="grid grid-two-column">
+
               <div className="singleproduct-images">
-                <MyImgs imgs={image}/>
+                <MyImgs imgs={image} />
               </div>
-           <div className="singleproduct-information">
+
+              <div className="singleproduct-information">
                 <h2>{name}</h2>
-                <Star stars={stars} reviews={reviews}/>
+                <Star stars={stars} reviews={reviews} />
                 <p className="product-data-price">
-              MRP:
-              <del>
-              <FormatPrice price={price + 250000} />
-              </del>
-            </p>
-            <p className="product-data-price product-data-real-price">
-              Deal of the Day:  <FormatPrice price={price} />
-            </p>
+                  MRP:
+                  <del>
+                    <FormatPrice price={price + 250000} />
+                  </del>
+                </p>
+
+                <p className="product-data-price product-data-real-price">
+                  Deal of the Day: <FormatPrice price={price} />
+                </p>
+
                 <p>{description}</p>
+
                 <div className="product-data-warranty">
                   <div className="product-warranty-data">
                     <TbTruckDelivery className="warranty-icon" />
@@ -83,19 +88,24 @@ const SingleProduct = () => {
                     <p>2 Year Warranty </p>
                   </div>
                 </div>
+
                 <p>
                   Available :{" "}
                   <span>{stock > 0 ? "In Stock" : "Not Available"}</span>
                 </p>
+
                 <p>
                   ID : <span>{id}</span>
                 </p>
+
                 <p>
                   Brand : <span>{company}</span>
                 </p>
-                <hr/>
-              <Button>Add To Cart</Button>
+
+                <hr />
+                {stock > 0 && <AddToCart product={singleProduct}/>}
               </div>
+
             </div>
           </div>
         </div>
