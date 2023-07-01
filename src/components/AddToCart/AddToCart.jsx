@@ -5,6 +5,7 @@ import { Button } from "../../styles/Button"
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import CartAmountToggle from "../CartAmountToggle/CartAmountToggle";
+import useCartContext from "../../hooks/useCartContext";
 
 const AddToCart = ({product}) => {
   const {id, colors, stock} = product;
@@ -19,6 +20,9 @@ const AddToCart = ({product}) => {
   const setIncrease = () => {
     amount < stock ? setAmount(amount + 1) : setAmount(stock)
   }
+
+  //cart context
+  const {addToCart} = useCartContext();
 
   return (
     <Wrapper>
@@ -45,8 +49,8 @@ const AddToCart = ({product}) => {
         setIncrease={setIncrease}
       />
 
-      <NavLink>
-        <Button>
+      <NavLink to="/cart" onClick={() => addToCart(id, color, amount, product)}>
+        <Button className="btn">
           Add To Cart
         </Button>
       </NavLink>
