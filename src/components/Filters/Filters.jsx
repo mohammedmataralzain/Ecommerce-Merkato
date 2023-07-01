@@ -1,21 +1,24 @@
-import useFilterContext from "../../hooks/useFilterContext"
-import { Wrapper } from "./Filters.styles"
+import FormatPrice from "../../Helpers/FormatPrice";
+import useFilterContext from "../../hooks/useFilterContext";
+import { Wrapper } from "./Filters.styles";
 import { AiOutlineSearch } from "react-icons/ai";
 
-
 const Filters = () => {
-
-  const { filters: {text, category}, all_products, updateFilterValue} = useFilterContext();
+  const {
+    filters: { text, category, maxPrice, price },
+    all_products,
+    updateFilterValue,
+  } = useFilterContext();
 
   // to get all available values in a spacific property
   const getUniqueValue = (data, property) => {
     const categories = data.map((element) => {
-      return element[property]
-    })
+      return element[property];
+    });
     return ["all", ...new Set(categories)];
-  }
-  const categories = getUniqueValue(all_products, "category")
-  const companies = getUniqueValue(all_products, "company")
+  };
+  const categories = getUniqueValue(all_products, "category");
+  const companies = getUniqueValue(all_products, "company");
   // Testing
   // console.log(companies);
 
@@ -23,15 +26,15 @@ const Filters = () => {
     <Wrapper>
       <div className="filter-search">
         <form onSubmit={(e) => e.preventDefault()}>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="text"
             value={text}
             placeholder="Search"
             onChange={updateFilterValue}
           />
           <div className="search-icon">
-            <AiOutlineSearch className="icon"/>
+            <AiOutlineSearch className="icon" />
           </div>
         </form>
       </div>
@@ -39,46 +42,54 @@ const Filters = () => {
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {
-            categories.map((element, index) => (
-              <button
-                key={index}
-                type="button"
-                name="category"
-                value={element}
-                className={element === category ? "active": ""}
-                onClick={updateFilterValue}
-              >
-                {element}
-              </button>
-            ))
-          }
+          {categories.map((element, index) => (
+            <button
+              key={index}
+              type="button"
+              name="category"
+              value={element}
+              className={element === category ? "active" : ""}
+              onClick={updateFilterValue}
+            >
+              {element}
+            </button>
+          ))}
         </div>
       </div>
 
       <div className="filter-company">
         <h3>Company</h3>
         <div>
-        <select
-          id="company"
-          name="company"
-          onClick={updateFilterValue}
-          className="filter-company-select"
-        >
-          {
-            companies.map((element, index) => (
-              <option 
-                key={index}
-                name="company"
-                value={element}
-              >{element}</option>
-            ))
-          }
-        </select>
+          <select
+            id="company"
+            name="company"
+            onClick={updateFilterValue}
+            className="filter-company-select"
+          >
+            {companies.map((element, index) => (
+              <option key={index} name="company" value={element}>
+                {element}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
+      <div className="filter-price">
+        <h3>price</h3>
+        <p>
+          <FormatPrice price={price} />
+        </p>
+        <input
+          type="range"
+          name="price"
+          value={price}
+          min={0}
+          max={maxPrice}
+          onChange={updateFilterValue}
+        />
+      </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Filters
+export default Filters;
