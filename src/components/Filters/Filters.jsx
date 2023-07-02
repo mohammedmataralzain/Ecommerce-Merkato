@@ -2,23 +2,32 @@ import FormatPrice from "../../Helpers/FormatPrice";
 import useFilterContext from "../../hooks/useFilterContext";
 import { Wrapper } from "./Filters.styles";
 import { AiOutlineSearch } from "react-icons/ai";
+import { Button } from "../../styles/Button";
 
 const Filters = () => {
   const {
     filters: { text, category, maxPrice, price },
     all_products,
     updateFilterValue,
+    clearFilters
   } = useFilterContext();
 
   // to get all available values in a spacific property
   const getUniqueValue = (data, property) => {
-    const categories = data.map((element) => {
+    let newVal = data.map((element) => {
       return element[property];
     });
-    return ["all", ...new Set(categories)];
+    if (property == "colors") {
+      // eslint-disable-next-line no-const-assign
+      return newVal = ([...new Set(newVal.flat())]);
+    } else {
+      // eslint-disable-next-line no-const-assign
+      return (newVal = ["all", ...new Set(newVal)]);
+    }
   };
   const categories = getUniqueValue(all_products, "category");
   const companies = getUniqueValue(all_products, "company");
+  const colors = getUniqueValue(all_products, "colors");
   // Testing
   // console.log(companies);
 
@@ -74,6 +83,20 @@ const Filters = () => {
           </select>
         </div>
       </div>
+      <div className="filter-colors">
+        <h3>Colors</h3>
+          {colors.map((element, index) => (
+            <button
+              key={index}
+              type="button"
+              name="color"
+              value={element}
+              onClick={updateFilterValue}
+              style={{backgroundColor:element}}
+            >
+            </button>))}
+            
+      </div>
       <div className="filter-price">
         <h3>price</h3>
         <p>
@@ -87,6 +110,9 @@ const Filters = () => {
           max={maxPrice}
           onChange={updateFilterValue}
         />
+      </div>
+      <div>
+        <Button onClick={clearFilters}>Clear Filters</Button>
       </div>
     </Wrapper>
   );

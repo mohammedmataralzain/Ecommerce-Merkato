@@ -70,7 +70,7 @@ const filterReducer = (state, action) => {
 
     case "FILTER_PRODUCTS":
       const { all_products } = state;
-      const { text, category, company, price } = state.filters;
+      const { text, category, company, price, color } = state.filters;
       let tempFilterProducts = all_products;
       if (text) {
         tempFilterProducts = tempFilterProducts.filter((product) =>
@@ -91,13 +91,32 @@ const filterReducer = (state, action) => {
       }
       if (price) {
         tempFilterProducts = tempFilterProducts.filter(
-            (product) => product.price <= price
-          );
+          (product) => product.price <= price
+        );
       }
 
+      if (color) {
+        tempFilterProducts = tempFilterProducts.filter((product) =>
+          product.colors.includes(color)
+        );
+      }
       return {
         ...state,
         filter_products: tempFilterProducts,
+      };
+    case "CLEAR_FILTERS":
+      return {
+        ...state,
+        grid_view: true,
+        sorting_value: "lowest",
+        filters: {
+          text: "",
+          category: "all",
+          company: "all",
+          maxPrice: state.filters.maxPrice,
+          minPrice: state.filters.maxPrice,
+          price: state.filters.maxPrice,
+        },
       };
     default:
       return state;
@@ -105,16 +124,3 @@ const filterReducer = (state, action) => {
 };
 
 export default filterReducer;
-
-// const arrPrice = action.payload.map((element) => Number(+element.price));
-
-// return {
-//   ...state,
-//   filter_products: [...action.payload],
-//   all_products: [...action.payload],
-//   filters: {
-//     state,
-//     maxPrice: maxPrice,
-//     minPrice: minPrice,
-//   },
-// };
