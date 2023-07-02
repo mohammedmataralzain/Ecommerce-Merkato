@@ -71,4 +71,17 @@ export const Wrapper = styled.section`
      margin-top: 1.5rem;
     }
   }
+  .filter-colors {
+    button {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      border: none;
+      transition:0.3s;
+      &:hover{
+       opacity: 0.4;
+      }
+    }
+  }
 `;
