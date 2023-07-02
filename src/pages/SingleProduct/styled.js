@@ -1,12 +1,7 @@
 import styled from "styled-components";
 
 export const StyleSingleProduct = styled.section`
-  .loading {
-    width: 100%;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-  }
+  
   .product-data-warranty {
     width: 100%;
     display: flex;
