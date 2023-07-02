@@ -48,10 +48,10 @@ function Login() {
       console.error(err);
     }
   }
-
+  
   return (
     <Wrapper>
-      <div className="container">
+      <div className="container" >
         <form className="login-form">
           <h2>{register ? "Sign Up" : "Sign In"}</h2>
           <input ref={emailRef} type="text" placeholder="Email" required />

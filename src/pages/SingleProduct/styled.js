@@ -1,12 +1,7 @@
 import styled from "styled-components";
 
 export const StyleSingleProduct = styled.section`
-  .loading {
-    width: 100%;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-  }
+  
   .product-data-warranty {
     width: 100%;
     display: flex;
@@ -32,27 +27,39 @@ export const StyleSingleProduct = styled.section`
     }
   }
   span {
-    color : ${({theme}) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-weight: bold;
   }
 
   hr {
     height: 0.5rem;
-    background-color: ${({theme}) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.black};
     width: calc(100% - 5rem);
   }
 
-  hr,p {
+  hr,
+  p {
     margin: 2rem 0;
   }
   .product-data-price {
-      font-weight: bold;
-    }
-    .product-data-real-price {
-      color: ${({ theme }) => theme.colors.btn};
-    }
-    .singleproduct-images {
-      display: flex;
-      align-items: center;
-    }
+    font-weight: bold;
+  }
+  .product-data-real-price {
+    color: ${({ theme }) => theme.colors.btn};
+  }
+  .singleproduct-images {
+    display: flex;
+    align-items: center;
+  }
+  .singleproduct-information .colors {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  .singleproduct-information .colors p {
+    width: 2rem;
+    height: 2rem;
+    padding: 2rem;
+    border-radius: 50%;
+  }
 `;

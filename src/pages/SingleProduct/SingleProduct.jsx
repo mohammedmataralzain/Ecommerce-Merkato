@@ -8,7 +8,7 @@ import { TbReplace, TbTruckDelivery } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import { StyleSingleProduct } from "./styled";
 import MyImgs from "../../components/MyImge/MyImgs";
-import {Button} from "../../styles/Button"
+import { Button } from "../../styles/Button";
 import Star from "../../components/Star/Star";
 
 // import {getSingleProductData} from "../../context"
@@ -27,14 +27,13 @@ const SingleProduct = () => {
     stars,
     reviews,
     image,
+    colors,
   } = singleProduct;
 
   useEffect(() => {
     getSingleProductData(id);
   }, []);
 
- 
-  
   return (
     <StyleSingleProduct>
       {loadingSingleProduct ? (
@@ -47,20 +46,20 @@ const SingleProduct = () => {
           <div className="container">
             <div className="grid grid-two-column">
               <div className="singleproduct-images">
-                <MyImgs imgs={image}/>
+                <MyImgs imgs={image} />
               </div>
-           <div className="singleproduct-information">
+              <div className="singleproduct-information">
                 <h2>{name}</h2>
-                <Star stars={stars} reviews={reviews}/>
+                <Star stars={stars} reviews={reviews} />
                 <p className="product-data-price">
-              MRP:
-              <del>
-              <FormatPrice price={price + 250000} />
-              </del>
-            </p>
-            <p className="product-data-price product-data-real-price">
-              Deal of the Day:  <FormatPrice price={price} />
-            </p>
+                  MRP:
+                  <del>
+                    <FormatPrice price={price + 250000} />
+                  </del>
+                </p>
+                <p className="product-data-price product-data-real-price">
+                  Deal of the Day: <FormatPrice price={price} />
+                </p>
                 <p>{description}</p>
                 <div className="product-data-warranty">
                   <div className="product-warranty-data">
@@ -93,8 +92,16 @@ const SingleProduct = () => {
                 <p>
                   Brand : <span>{company}</span>
                 </p>
-                <hr/>
-              <Button>Add To Cart</Button>
+                <hr />
+                <p className="colors">
+                Colors :
+                  {colors?.map((el, index) => (
+                    <p key={index} style={{ backgroundColor: el,width:"1rem",height:"1rem",padding:"2rem" }}>
+                     
+                    </p>
+                  ))}
+                </p>
+                <Button>Add To Cart</Button>
               </div>
             </div>
           </div>

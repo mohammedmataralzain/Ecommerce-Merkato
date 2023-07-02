@@ -28,7 +28,7 @@ export const Wrapper = styled.section`
       width: 100%;
     }
     &:hover img {
-      transform: scale(1.2) rotate(6deg);
+      transform: scale(1.3) rotate(6deg);
     }
     img {
       max-width: 90%;
@@ -69,7 +69,7 @@ export const Wrapper = styled.section`
       text-transform: capitalize;
     }
 
-    .card-data--price {
+    .card-data-price {
       color: ${({ theme }) => theme.colors.helper};
     }
 
@@ -92,5 +92,79 @@ export const Wrapper = styled.section`
         color: rgb(98 84 243);
         font-size: 1.4rem;
       }
+    }
+
+    // for the list view 
+    .card-list{
+     
+      display: flex;
+      justify-content: space-evenly;
+      gap: 10rem;
+      /* padding: 3.2rem 9rem; */
+      border: 1px solid ${({theme}) => theme.colors.border};
+      border-radius: 1rem;
+
+      .card-img{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        width: 450px;
+        padding: 2rem;
+        img{
+          /* max-width: 340px; */
+          width: 100%;
+          height: 20rem;
+          transition: all 0.25s linear;
+          position: relative;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: all 0.25s linear;
+            cursor: pointer;
+            z-index: 99;
+          }
+          &:hover::after {
+            width: 100%;
+          }
+          &:hover img{
+            transform: scale(1.3);
+          }
+
+
+      }
+
+      .card-data{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        h3{
+          font-size: 2.2rem;
+          font-weight: bold;
+        }
+
+        .card-data-price{
+          font-size: 1.4rem;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+        }
+
+        button{
+          margin-top :2rem ;
+          font-size: 1.2rem;
+        }
+      }
+      
     }
 `;
