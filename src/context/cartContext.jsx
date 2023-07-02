@@ -25,7 +25,15 @@ const CartProvider = ({children}) => {
     //     console.log(state);
     // }, [state])
 
-    return <CartContext.Provider value={{...state, addToCart}}>
+    const setDecrease = (id) => {
+        dispatch({type: "SET_DECREASE", payload: id});
+    }
+
+    const setIncrease = (id) => {
+        dispatch({type: "SET_INCREASE", payload: id});
+    }
+
+    return <CartContext.Provider value={{...state, addToCart, setDecrease, setIncrease}}>
         {children}
     </CartContext.Provider>
 }
