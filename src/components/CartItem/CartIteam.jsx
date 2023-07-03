@@ -7,7 +7,7 @@ import CartAmountToggle from "../CartAmountToggle/CartAmountToggle";
 import useCartContext from "../../hooks/useCartContext";
 
 const CartIteam = ({ id, name, image, color, amount, max, price }) => {
-    const {setDecrease, setIncrease} = useCartContext();
+    const {setDecrease, setIncrease, removeProduct} = useCartContext();
 
 
   return (
@@ -48,7 +48,7 @@ const CartIteam = ({ id, name, image, color, amount, max, price }) => {
       </div>
 
       <div className="cart-remove">
-        <FaTrash className="remove-icon"/>
+        <FaTrash className="remove-icon" onClick={() => removeProduct(id)}/>
       </div>
 
     </div>
