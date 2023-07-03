@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useProductContext from "../../hooks/useProductContext";
@@ -10,6 +11,7 @@ import { StyleSingleProduct } from "./styled";
 import MyImgs from "../../components/MyImge/MyImgs";
 import { Button } from "../../styles/Button";
 import Star from "../../components/Star/Star";
+import AddToCart from "../../components/AddToCart/AddToCart"
 
 // import {getSingleProductData} from "../../context"
 const SingleProduct = () => {
@@ -45,9 +47,11 @@ const SingleProduct = () => {
           <PageNavigation title={name} />
           <div className="container">
             <div className="grid grid-two-column">
+
               <div className="singleproduct-images">
                 <MyImgs imgs={image} />
               </div>
+
               <div className="singleproduct-information">
                 <h2>{name}</h2>
                 <Star stars={stars} reviews={reviews} />
@@ -57,10 +61,15 @@ const SingleProduct = () => {
                     <FormatPrice price={price + 250000} />
                   </del>
                 </p>
+
+
                 <p className="product-data-price product-data-real-price">
                   Deal of the Day: <FormatPrice price={price} />
                 </p>
+
+
                 <p>{description}</p>
+
                 <div className="product-data-warranty">
                   <div className="product-warranty-data">
                     <TbTruckDelivery className="warranty-icon" />
@@ -82,27 +91,26 @@ const SingleProduct = () => {
                     <p>2 Year Warranty </p>
                   </div>
                 </div>
+
                 <p>
                   Available :{" "}
                   <span>{stock > 0 ? "In Stock" : "Not Available"}</span>
                 </p>
+
                 <p>
                   ID : <span>{id}</span>
                 </p>
+
                 <p>
                   Brand : <span>{company}</span>
                 </p>
+
+
                 <hr />
-                <p className="colors">
-                Colors :
-                  {colors?.map((el, index) => (
-                    <p key={index} style={{ backgroundColor: el,width:"1rem",height:"1rem",padding:"2rem" }}>
-                     
-                    </p>
-                  ))}
-                </p>
-                <Button>Add To Cart</Button>
+                {stock > 0 && <AddToCart product={singleProduct}/>}
+
               </div>
+
             </div>
           </div>
         </div>

@@ -40,6 +40,7 @@ function App() {
       footer_bg: "#0a1435",
       btn: "rgb(98 84 243)",
       border: "rgba(98, 84, 243, 0.5)",
+      red: "#E74C3C",
       hr: "#ffffff",
       helper: "#8490ff",
       shadow:
