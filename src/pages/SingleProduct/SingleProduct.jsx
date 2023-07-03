@@ -29,6 +29,7 @@ const SingleProduct = () => {
     stars,
     reviews,
     image,
+    colors,
   } = singleProduct;
 
   useEffect(() => {
@@ -61,9 +62,11 @@ const SingleProduct = () => {
                   </del>
                 </p>
 
+
                 <p className="product-data-price product-data-real-price">
                   Deal of the Day: <FormatPrice price={price} />
                 </p>
+
 
                 <p>{description}</p>
 
@@ -102,8 +105,10 @@ const SingleProduct = () => {
                   Brand : <span>{company}</span>
                 </p>
 
+
                 <hr />
                 {stock > 0 && <AddToCart product={singleProduct}/>}
+
               </div>
 
             </div>

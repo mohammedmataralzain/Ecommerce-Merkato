@@ -8,15 +8,19 @@ import "./index.css";
 // context providers
 import { AppProvider } from "./context/productcontext.jsx";
 import { CartProvider } from "./context/cartContext.jsx";
+import { FilterContextProvider } from './context/filterContext.jsx';
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AppProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </CartProvider>
+      <FilterContextProvider>
+        <CartProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CartProvider>
+      </FilterContextProvider>
     </AppProvider>
   </React.StrictMode>
 );
