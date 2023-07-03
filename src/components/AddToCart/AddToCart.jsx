@@ -29,14 +29,14 @@ const AddToCart = ({product}) => {
       <div className="colors">
         <p>
           color: {
-            colors.map((iteam, index) => (
+            colors.map((item, index) => (
               <button
               key={index}
-              className={color === iteam ? "btnStyle active" : "btnStyle"}
-              style={{backgroundColor: iteam}}
-              onClick={() => setColor(iteam)}
+              className={color === item ? "btnStyle active" : "btnStyle"}
+              style={{backgroundColor: item}}
+              onClick={() => setColor(item)}
               >
-                {color === iteam ? <FaCheck className="checkStyle" /> : null}
+                {color === item ? <FaCheck className="checkStyle" /> : null}
               </button>
             ))
           }

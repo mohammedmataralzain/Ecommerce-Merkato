@@ -56,10 +56,5 @@ export const StyleSingleProduct = styled.section`
     align-items: center;
     gap: 0.7rem;
   }
-  .singleproduct-information .colors p {
-    width: 2rem;
-    height: 2rem;
-    padding: 2rem;
-    border-radius: 50%;
-  }
+  
 `;

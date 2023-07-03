@@ -7,8 +7,8 @@ export const Wrapper = styled.section`
     align-items: center;
   }
   .btnStyle {
-    width: 2rem;
-    height: 2rem;
+    width: 2.3rem;
+    height: 2.3rem;
     background-color: #000;
     border-radius: 50%;
     margin-left: 1rem;
