@@ -74,6 +74,12 @@ const cartReducer = (state, action) => {
         ...state,
         cart: unRemovedProducts
       }
+    
+      case "CLEAR_ALL":
+        return {
+          ...state,
+          cart: []
+        }
     default:
       return state;
   }

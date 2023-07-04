@@ -6,9 +6,11 @@ import { Navbar } from "./Nav.styles";
 import { Button } from "../../styles/Button";
 import { auth } from "../../config/firebase";
 import {signOut} from "firebase/auth"
+import useCartContext from "../../hooks/useCartContext";
 
 function Nav() {
   const [menuIcon, setMenuIcon] = useState(false);
+  const {cart} = useCartContext();
 
   const logOut = (e) => {
     e.preventDefault();
@@ -50,7 +52,7 @@ function Nav() {
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
               {/* This is static just for testing  */}
-              <span className="cart-total--item">8</span>
+              <span className="cart-total--item">{cart.length}</span>
             </NavLink>
           </li>
         </ul>

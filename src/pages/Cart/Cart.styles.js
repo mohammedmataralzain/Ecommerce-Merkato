@@ -88,6 +88,17 @@ export const Wrapper = styled.section`
         }
     }
 
+    // cart buttons
+    .cart-buttons{
+        margin-top: 5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cart-buttons .red{
+        background: ${({theme}) => theme.colors.red}
+    }
+
 
     // Empty cart
     .cart-empty{

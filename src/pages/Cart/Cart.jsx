@@ -5,7 +5,7 @@ import { Button } from "../../styles/Button";
 import { Wrapper } from "./Cart.styles";
 
 const Cart = () => {
-  const { cart } = useCartContext();
+  const { cart, clearAll } = useCartContext();
   console.log(cart);
 
   return (
@@ -24,20 +24,36 @@ const Cart = () => {
           </div>
 
         ) : (
-          <div className="cart-item">
-            <div className="cart-heading grid grid-five-column">
-              <p>Item</p>
-              <p className="cart-hidden">Price</p>
-              <p>Quantity</p>
-              <p className="cart-hidden">Subtotal</p>
-              <p>Remove</p>
+          
+          <>
+            <div className="cart-item">
+              <div className="cart-heading grid grid-five-column">
+                <p>Item</p>
+                <p className="cart-hidden">Price</p>
+                <p>Quantity</p>
+                <p className="cart-hidden">Subtotal</p>
+                <p>Remove</p>
+              </div>
+              <hr />
+              {cart.map((element) => {
+                return <CartIteam key={element.id} {...element} />;
+              })}
             </div>
-            <hr />
-            {cart.map((element) => {
-              return <CartIteam key={element.id} {...element} />;
-            })}
-          </div>
+
+            <div className="cart-buttons">
+              <NavLink to="/Products">
+                <Button>
+                  Continue
+                </Button>
+              </NavLink>    
+              
+              <Button className="red" onClick={clearAll}>
+                Clear
+              </Button>
+            </div>
+          </>
         )}
+        
       </div>
     </Wrapper>
   );
