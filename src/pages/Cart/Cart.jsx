@@ -58,7 +58,7 @@ const Cart = () => {
                 </p>
                 <hr />
 
-                <p>Order Total: <FormatPrice price={total_amount - shipping_fee}/></p>
+                <p>Order Total: <FormatPrice price={total_amount + shipping_fee}/></p>
               </div>
             </div>
           </>
