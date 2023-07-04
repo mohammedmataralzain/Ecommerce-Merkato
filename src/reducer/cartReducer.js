@@ -16,6 +16,7 @@ const cartReducer = (state, action) => {
         price: product.price,
         max: product.stock,
       };
+
       return {
         ...state,
         cart: [...state.cart, cartProduct],
@@ -65,21 +66,32 @@ const cartReducer = (state, action) => {
         cart: updatedProductTwo,
       };
 
-
     case "REMOVE_ITEM":
       let unRemovedProducts = state.cart.filter((element) => {
-        return element.id != action.payload
-      })
+        return element.id != action.payload;
+      });
       return {
         ...state,
         cart: unRemovedProducts
       }
     
-      case "CLEAR_ALL":
-        return {
-          ...state,
-          cart: []
-        }
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+      
+    case "TOTAL_CART":
+      let totalCart = state.cart.reduce(
+        (accumulator, currentValue) =>
+          accumulator + currentValue.price * currentValue.amount,
+        0
+      );
+      return {
+        ...state,
+        total_amount: totalCart,
+      };
+
     default:
       return state;
   }

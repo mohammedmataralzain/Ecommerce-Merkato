@@ -3,9 +3,11 @@ import CartIteam from "../../components/CartItem/CartIteam";
 import useCartContext from "../../hooks/useCartContext";
 import { Button } from "../../styles/Button";
 import { Wrapper } from "./Cart.styles";
+import FormatPrice from "../../Helpers/FormatPrice";
 
 const Cart = () => {
-  const { cart, clearAll } = useCartContext();
+
+  const { shipping_fee, cart, clearCart, total_amount } = useCartContext();
   console.log(cart);
 
   return (
@@ -13,16 +15,11 @@ const Cart = () => {
       <div className="container">
         {cart.length == 0 ? (
           <div className="cart-empty">
-            <div>
-              No items to show, your cart is empty 
-            </div>
+            <div>No items to show, your cart is empty</div>
             <NavLink to="/Products">
-              <Button>
-                add items
-              </Button>
+              <Button>add items</Button>
             </NavLink>
           </div>
-
         ) : (
           
           <>
@@ -40,18 +37,33 @@ const Cart = () => {
               })}
             </div>
 
-            <div className="cart-buttons">
-              <NavLink to="/Products">
-                <Button>
-                  Continue
-                </Button>
-              </NavLink>    
-              
-              <Button className="red" onClick={clearAll}>
-                Clear
+            <div className="cart-btn">
+              <NavLink to="/Products" className="navbar-link ">
+                <Button>CONTINUE SHOPPING</Button>
+              </NavLink>
+
+              <Button className="red" onClick={clearCart}>
+                CLEAR CART
               </Button>
             </div>
+
+            <div className="cart-total">
+              <div className="cart-total-info">
+                <p>
+                  Subtotal:
+                  <FormatPrice price={total_amount} />
+                </p>
+                <p>
+                  shipping fee :<FormatPrice price={shipping_fee} />
+                </p>
+                <hr />
+
+                <p>Order Total: <FormatPrice price={total_amount - shipping_fee}/></p>
+              </div>
+            </div>
           </>
+
+          // </div>
         )}
         
       </div>

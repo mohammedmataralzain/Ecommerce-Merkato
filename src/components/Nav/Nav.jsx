@@ -52,7 +52,7 @@ function Nav() {
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
               <FiShoppingCart className="cart-trolley" />
               {/* This is static just for testing  */}
-              <span className="cart-total--item">{cart.length}</span>
+              {cart.length != 0 ? <span className="cart-total--item">{cart.length}</span> : ""}
             </NavLink>
           </li>
         </ul>
