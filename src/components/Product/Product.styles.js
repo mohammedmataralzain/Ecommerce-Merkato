@@ -96,7 +96,6 @@ export const Wrapper = styled.section`
 
     // for the list view 
     .card-list{
-     
       display: flex;
       justify-content: space-evenly;
       gap: 10rem;

@@ -41,6 +41,7 @@ function App() {
       btn: "rgb(98 84 243)",
       border: "rgba(98, 84, 243, 0.5)",
       red: "#E74C3C",
+      redDark: "#c94436",
       hr: "#ffffff",
       helper: "#8490ff",
       shadow:
